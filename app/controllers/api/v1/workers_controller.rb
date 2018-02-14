@@ -12,8 +12,10 @@ class Api::V1::WorkersController < ApplicationController
   def update
     worker = Worker.find(params[:id])
     worker.update(worker_params)
+    new_sps = worker.shop.sandwiches_per_second + worker.sandwiches_per_second_modifier
     if worker.save
-      render json: worker
+      worker.shop.update(sandwiches_per_second: new_sps)
+      render json: {id: worker.id, quantity: worker.quantity, cost: worker.cost, sandwiches_per_second_modifier: worker.sandwiches_per_second_modifier, shop_sps: worker.shop.sandwiches_per_second}
     else
       render json:{errors: worker.errors.full_messages}, status: 422
     end
@@ -28,12 +30,11 @@ class Api::V1::WorkersController < ApplicationController
   private
 
   def worker_params
-    # t.string "name"
-    # t.integer "sandwiches"
-    # t.integer "quantity"
-    # t.integer "cost"
-    # t.integer "interval"
-    # t.integer "shop_id"
-    params.permit(:name, :sandwiches, :quantity, :cost, :interval, :shop_id)
+    # t.string :name
+    # t.float :sandwiches_per_second_modifier
+    # t.integer :quantity
+    # t.integer :cost
+    # t.integer :shop_id
+    params.permit(:name, :sandwiches_per_second_modifier, :quantity, :cost, :shop_id)
   end
 end

@@ -17,23 +17,23 @@ ActiveRecord::Schema.define(version: 20180213203132) do
 
   create_table "shops", force: :cascade do |t|
     t.string "name"
-    t.integer "balance"
+    t.float "balance"
+    t.float "sandwiches_per_second"
   end
 
   create_table "upgrades", force: :cascade do |t|
     t.string "name"
     t.integer "cost"
-    t.integer "multiplier"
-    t.string "user"
+    t.float "sandwiches_per_second_modifier"
+    t.float "worker_cost_modifier"
     t.integer "worker_id"
   end
 
   create_table "workers", force: :cascade do |t|
     t.string "name"
-    t.integer "sandwiches"
+    t.float "sandwiches_per_second_modifier"
     t.integer "quantity"
     t.integer "cost"
-    t.integer "interval"
     t.integer "shop_id"
   end
 

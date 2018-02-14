@@ -30,6 +30,6 @@ class Api::V1::ShopsController < ApplicationController
   def shop_params
     # t.string "name"
     # t.integer "balance"
-    params.permit(:name, :balance)
+    params.permit(:name, :balance, :sandwiches_per_second)
   end
 end

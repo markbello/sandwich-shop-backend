@@ -3,9 +3,13 @@ class Upgrades < ActiveRecord::Migration[5.1]
     create_table :upgrades do |t|
       t.string :name
       t.integer :cost
-      t.integer :multiplier
-      t.string :user
+      t.float :sandwiches_per_second_modifier
+      t.float :worker_cost_modifier
       t.integer :worker_id
     end
   end
 end
+
+#Cost of upgrade should scale to the amount of workers improved
+#Ex. "Living Wage Upgrade".cost would be self.cost * worker_type.quantity
+#    "Living Wage Upgrade".multiplier = self.multiplier * worker_type.quantity

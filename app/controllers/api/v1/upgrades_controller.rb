@@ -18,11 +18,11 @@ class Api::V1::UpgradesController < ApplicationController
   private
 
   def upgrade_params
-    # t.string "name"
-    # t.integer "cost"
-    # t.integer "multiplier"
-    # t.string "user"
-    # t.integer "worker_id"
-    params.permit(:name, :cost, :multiplier, :user, :worker_id)
+    # t.string :name
+    # t.integer :cost
+    # t.float :sandwiches_per_second_modifier
+    # t.float :worker_cost_modifier
+    # t.integer :worker_id
+    params.permit(:name, :cost, :sandwiches_per_second_modifier, :worker_cost_modifier, :worker_id)
   end
 end
