@@ -1,25 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An experiment in brutalist design, written with plain vanilla Javascript, HTML, and CSS. Inspired by Cookie Clicker- you click the sandwich, it sells the sandwich.
 
-Things you may want to cover:
+What kind of sandwich you ask? Probably the kind of sandwich they sell on the subway out of a cooler cuz like, they’re a dollar apiece. PB&J? Maybe, but except without the J- too much color…
 
-* Ruby version
+Similar to the original Cookie Clicker, making enough sandwiches opens an expansive world of upgrades. By “expansive” I mean 3. Brutal.
 
-* System dependencies
+Purchasing an upgrade sets an interval on the app, allowing it to produce and sell more and more sandwiches without you clicking the sandwich button. Watch out, though: the upgrades get substantially more expensive each time you purchase them.
 
-* Configuration
+A Ruby on Rails API on the back-end persists your account balance and interval. It is essential to protect this sensitive information from a wayward page refresh.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# sandwich-shop-backend
+In-game micro interactions come courtesy of plain CSS and BounceJS, and make the user experience more engaging.
